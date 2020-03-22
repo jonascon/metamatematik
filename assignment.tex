@@ -1,0 +1,313 @@
+\input{preamble.tex}
+\usepackage[T1]{fontenc}
+\usepackage{tikz-cd}
+%\usepackage{fouriernc}
+
+\usepackage{thmtools}
+\usepackage{fancyhdr}
+\usepackage{dirtree}
+\usepackage{csquotes}
+
+\usepackage{polynom}
+\polyset{%
+   style=C,
+   delims={\big(}{\big)},
+   div=:
+}
+
+\newsavebox{\myheadbox}
+\fancypagestyle{normalpage}
+{
+%\begin{flushright}
+\lhead{
+Jonas Conneryd
+}
+%\end{flushright}
+\rhead{\url{conneryd@kth.se}}
+\chead{Meta-Mathematics Assignment}
+\cfoot{\thepage}
+}
+\fancyhf{}
+\fancypagestyle{firstpage}
+{
+%\begin{flushright}
+\lhead{
+Jonas Conneryd \\ \url{conneryd@kth.se}}
+%\end{flushright}
+\rhead{970731-7559  \\
+\the\year
+}
+\chead{\Large{\scshape{\textbf{Meta-Mathematics Assignment} \\ \vspace{-4pt}\normalsize\textbf{ AK2040 Theory and Methodology of Science}}}}
+\cfoot{\thepage}
+}
+
+\pagestyle{normalpage}
+
+
+\declaretheoremstyle[headfont=\bfseries\scshape]{normalhead}
+\interfootnotelinepenalty=10000
+%\title{\vspace{-2cm}\textbf{\textsf{ Homework 3}}}
+\date{}
+%\author{Jonas Conneryd \\
+%conneryd@kth.se \\ 970731-7559}
+
+\renewcommand{\C}{\mathbb{C}}
+\newcommand{\GL}{\mathsf{GL}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\R}{\mathbb{R}}
+\newcommand{\Res}{\mathsf{Res}^{D_{2n}}_{\langle x\rangle}}
+\newcommand{\triv}{\mathbb{1}}
+\newcommand{\Char}{\mathsf{Char}}
+\newcommand{\Fix}{\mathsf{Fix}}
+\newcommand{\Span}{\mathsf{Span}}
+\newcommand{\Tr}{\mathsf{Tr}}
+\newcommand{\Ker}{\mathsf{Ker}}
+\renewcommand{\Im}{\mathsf{Im}}
+\newcommand{\Cent}{\mathsf{Cent}}
+\newcommand{\Id}{\mathsf{Id}}
+\newcommand{\Hom}{\textbf{Hom}}
+\newcommand{\Ext}{\textbf{Ext}}
+
+
+\begin{document}
+%\maketitle
+\thispagestyle{firstpage}
+\theoremstyle{normalhead}
+\newtheorem{problem}{Problem}
+\newtheorem{lemma}{Lemma}
+
+
+\begin{problem}
+Find formulas expressing the following claims.
+  \hfill
+  \begin{enumerate}[font=\normalfont,label=\textbf{(\Alph*)}]
+    \item $x$ is not a square.
+    \item $x$ succeeds some multiple of 4.
+    \item $x$ and $x'$ have no common factor greater than $x''$.
+    \item Every prime that succeeds a multiple of 4 can be expressed as the sum of two squares.
+
+  \end{enumerate}
+\end{problem}
+\begin{proof}[Solution]
+  In all of these, we apply the top-down method of section 2.5. We make frequent use of the 'for some'-method outlined in the course notes.
+  \hfill
+
+  \begin{enumerate}[font=\normalfont,label=\textbf{(\Alph*)}]
+    \item
+    \[
+\begin{aligned}
+  \pmb{
+    \mathsf{
+  x}} \text{ is not a square}
+     \\
+  \pmb{
+    \mathsf{
+  \forall x'[x'}} \text{ is a square}\pmb{\mathsf{] \sim x' = x
+    }
+  } \\
+  \pmb{\mathsf{\forall x'[\sim \forall x''\sim x' = (x''\cdot x'')] \sim x' = x}}
+\end{aligned}
+    \]
+
+      \item
+      \[
+      \begin{aligned}
+        \pmb{
+          \mathsf{
+            x }}\text{ succeeds some multiple of 4}\pmb{\mathsf{
+            }
+        } \\
+        \pmb{
+          \mathsf{
+          }}\text{For some }\pmb{\mathsf{ x'[x' }}\text{ is a multiple of 4}]\pmb{\mathsf{ Sx' = x
+          }
+        } \\
+        \pmb{
+          \mathsf{
+          }}\text{For some }\pmb{\mathsf{ x'[}}\text{For some }\pmb{\mathsf{ x'', x' = 4x''] Sx' = x
+          }
+        } \\
+        \pmb{
+          \mathsf{
+          \sim \forall x'[\sim \forall x'' \sim x' = SSSS0\cdot x''] \sim Sx' = x
+          }
+        }
+    \end{aligned}
+    \]
+    \item
+    \[
+    \begin{aligned}
+      \pmb{
+        \mathsf{
+          x }}\text{ and }\pmb{\mathsf{ x' }}\text{ have no common factor greater than }\pmb{\mathsf{ x''
+          }
+      } \\
+      \pmb{
+        \mathsf{
+        \forall x'''[x''' }}\text{ is a factor of }\pmb{\mathsf{ x }}\text{ and }\pmb{\mathsf{ x'] x''' \leq  x''
+        }
+      } \\
+      \pmb{
+        \mathsf{
+        \forall x'''[x''' }}\text{ is a factor of }\pmb{\mathsf{ x }}\text{ and }\pmb{\mathsf{ x']\forall x'''\,' \sim x''' = (x'' + Sx'''\,')
+        }
+      } \\
+      \pmb{
+        \mathsf{
+        \forall x'''[\sim \forall x'''\,'' \sim x = (x'''\,'' \cdot x''')][\sim \forall x'''\,''' \sim x' = (x'''\,''' \cdot x''')]\forall x'''\,' \sim x''' = (x'' + Sx'''\,')
+        }
+      }
+  \end{aligned}
+  \]
+
+  \item
+
+  \[
+  \begin{aligned}
+  \text{Every prime that succeeds a multiple of 4 can be expressed as the sum of two squares} \\
+    \pmb{
+      \mathsf{
+      }}\text{Every }\pmb{\mathsf{ x}} \text{ such that } \pmb{\mathsf{x}} \text{ is a prime and } \pmb{\mathsf{x}} \text{ succeeds a multiple of 4 can be expressed as the sum of two squares}
+      \\
+    \pmb{
+      \mathsf{
+      \forall x [x }}\text{ is prime}\pmb{\mathsf{][x }}\text{ succeeds a multiple of 4}\pmb{\mathsf{]\sim \forall x'\forall x'' \sim x = ((x'\cdot x') + (x''\cdot x''))
+      }
+    } \\
+    \pmb{
+      \mathsf{
+      \forall x [\forall x''' \forall x'''\,' \sim x = (SSx''' \cdot SSx'''\,')][\sim \forall x'''\,'' \sim x = S(SSSS0\cdot x'''\,'') ]\sim \forall x'\forall x'' \sim x = ((x'\cdot x') + (x''\cdot x''))
+      }
+    }
+\end{aligned}
+\]
+
+
+  \end{enumerate}
+\end{proof}
+\newpage
+
+
+\begin{problem}
+  Is the statement
+  \[
+    \pmb{\mathsf{
+    \forall x[\forall x' \forall x'' \sim x = (SS0 \cdot (x'+x''))]\forall x'' \sim x = (SS0 \cdot (x'' + x''))
+    }}
+  \]
+  an axiom of PA?
+\end{problem}
+\begin{proof}[Solution]
+  In English, the statement reads
+  \[
+  \begin{aligned}
+  \pmb{\mathsf{
+    \forall x[\forall x' \forall x'' \sim x = (SS0 \cdot (x'+x''))]\forall x'' \sim x = (SS0 \cdot (x'' + x''))
+  }} \\
+  \pmb{\mathsf{
+    \forall x[x \neq 2y, \text{ for any y}] x \neq 2 \cdot 2z, \text{ for any z}
+  }} \\
+  \pmb{\mathsf{
+    \text{No odd x is a multiple of 4}
+  }}
+  \end{aligned}
+  \]
+\end{proof}
+\newpage
+
+
+\begin{problem}
+  \hfill
+
+  \begin{enumerate}[font=\normalfont,label=\textbf{(\Alph*)}]
+    \item Does it hold in general that if $(\pi_0, \ldots, \pi_m)$ and $(\rho_0, \ldots, \rho_n)$ are PA-deductions, then $(\pi_0, \ldots, \pi_m, \rho_0, \ldots, \rho_n)$ is a PA-deduction?
+
+    \item Does it hold in general that if $(\pi_0, \ldots, \pi_m, \rho_0, \ldots, \rho_n)$ is a PA-deduction, then $(\pi_0, \ldots, \pi_m)$ and $(\rho_0, \ldots, \rho_n)$ are PA-deductions?
+  \end{enumerate}
+\end{problem}
+\begin{proof}[Solution]
+  \begin{enumerate}[font=\normalfont,label=\textbf{(\Alph*)}, wide]
+    \item Does it hold in general that if $(\pi_0, \ldots, \pi_m)$ and $(\rho_0, \ldots, \rho_n)$ are PA-deductions, then $(\pi_0, \ldots, \pi_m, \rho_0, \ldots, \rho_n)$ is a PA-deduction?
+
+    \item Does it hold in general that if $(\pi_0, \ldots, \pi_m, \rho_0, \ldots, \rho_n)$ is a PA-deduction, then $(\pi_0, \ldots, \pi_m)$ and $(\rho_0, \ldots, \rho_n)$ are PA-deductions?
+  \end{enumerate}
+\end{proof}
+\newpage
+
+
+
+\newpage
+
+\begin{problem}
+  SEE NOTES
+  \begin{enumerate}[font=\normalfont,label=\textbf{(\Alph*)}]
+    \item
+  \end{enumerate}
+\end{problem}
+\begin{proof}[Solution]
+  \hfill
+
+\dirtree{%
+.1 $\pmb{\mathsf{\forall x[\forall x' (x\cdot x') = x'] \forall x x = S0}} \text{ true}$.
+  .2 $\pmb{\mathsf{[\forall x' (0\cdot x') = x'] 0 = S0}} \text{ true}$.
+    .3 $\pmb{\mathsf{0 = S0}} \text{ false}$.
+    .3 $\pmb{\mathsf{\forall x' (0\cdot x') = x'}} \text{ false}$.
+      .4 $\pmb{\mathsf{0 = (0 \cdot 0)}} \text{ true}$.
+      .4 $\pmb{\mathsf{S0 = (S0 \cdot 0)}} \text{ false}$.
+      .4 $\pmb{\mathsf{SS0 = (SS0 \cdot 0)}} \text{ false}$.
+      .4 etc.
+  .2 $\pmb{\mathsf{[\forall x' (S0\cdot x') = x'] S0 = S0}} \text{ true}$.
+    .3 $\pmb{\mathsf{S0 = S0}} \text{ true}$.
+    .3 $\pmb{\mathsf{\forall x' (S0\cdot x') = x'}} \text{ true}$.
+      .4 $\pmb{\mathsf{0 = (S0 \cdot 0)}} \text{ true}$.
+      .4 $\pmb{\mathsf{S0 = (S0 \cdot S0)}} \text{ true}$.
+      .4 $\pmb{\mathsf{SS0 = (S0 \cdot SS0)}} \text{ true}$.
+      .4 etc.
+  .2 $\pmb{\mathsf{[\forall x' (SS0\cdot x') = x'] SS0 = S0}} \text{ true}$.
+    .3 $\pmb{\mathsf{SS0 = S0}} \text{ false}$.
+    .3 $\pmb{\mathsf{\forall x' (0\cdot x') = x'}} \text{ false}$.
+      .4 $\pmb{\mathsf{0 = (SS0 \cdot 0)}} \text{ true}$.
+      .4 $\pmb{\mathsf{S0 = (SS0 \cdot S0)}} \text{ false}$.
+      .4 $\pmb{\mathsf{SS0 = (SS0 \cdot SS0)}} \text{ false}$.
+      .4 etc.
+  .2 etc.
+}
+
+\end{proof}
+
+\newpage
+
+\begin{problem}
+  According to theorem 5.22, there exist true sentences that are not theses of PA. Theorem 5.22 does not say how many such sentences exist; but, in fact, from theorem 5.23 we can conclude that there have to be infinitely many. Explain why. In other words, explain how, if there were only finitely many true non.theses of PA, we could construct a system satisfying all three of the conditions listed in theorem 5.23. More specifically, do the following:
+
+  First assume hypothetically that there are only finitely many true sentences that are not theses of PA.
+
+  Then, on the basis of this assumption, define a new system $S$ (or whatever you want to call it). What are its axioms? What are its rule or rules of inference. Whether you want to specify $S$ by somehow modifying PA, or by starting from scratch, that is up to you.
+  Then
+\begin{enumerate}[font=\normalfont,label=\textbf{(\Alph*)}, wide]
+  \item Explain why your system $S$ would satisfy condition (i) of theorem 5.23.
+
+
+  \item Explain why your system $S$ would satisfy condition (ii) of theorem 5.23.
+
+
+  \item Explain why your system $S$ would satisfy condition (iii) of theorem 5.23.
+\end{enumerate}
+  The arguments can be quite short, and you may refer to arguments from the course notes as you find appropriate-but you need to convince us that you understand what you are doing.
+
+\end{problem}
+\begin{proof}[Solution]
+  Suppose there are only finitely many true sentences $\alpha_1, \ldots, \alpha_n$ that are not theses of PA. Define $S$ as PA with $\alpha_1,\ldots, \alpha_n$ as additional axioms. Then:
+
+  \begin{enumerate}[font=\normalfont,label=\textbf{(\Alph*)}, wide]
+    \item The algorithm for deciding whether a given sequence of sentences belongs to PA outlined in the text between theorems 5.22 and 5.23 is easily extended to $S$, since one can extend exactly that algorithm to any finite number of axioms.
+
+    \item Every thesis of $S$ is true by the proof strategy of theorem 5.21; Every axiom for $S$ is true because they are either axioms of PA, which we know are true, or they are true sentences in PA by assumption. Then the same proof as in theorem 5.21 shows that every thesis of $S$ is true.
+
+    \item Every true sentence is a thesis of $S$. Suppose for the sake of contradiction that this is not the case, i.e. that there are true sentences that are not theses of $S$. But then this sentence is true but not a thesis in PA. By construction, it is then an axiom of $S$, which contradicts that it is not a thesis of $S$.
+  \end{enumerate}
+By theorem 5.23, it is impossible for $S$ to exist. We conclude that we were wrong to assume that there are only finitely many true sentences that are not theses of PA, so it follows that there are infinitely many such sentences.
+
+\end{proof}
+
+\end{document}

@@ -1,0 +1,110 @@
+\documentclass[11pt]{amsart}
+\usepackage[marginratio=1:1, headheight=27pt,
+footskip = 13pt, a4paper, total={6.5in, 9in}]{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ...
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage[font=small,labelfont=bf]{caption} % Required for specifying captions to tables
+%\usepackage{dirtytalk}
+%\usepackage[version=3]{mhchem}
+%\usepackage{subcaption}
+\usepackage{subfig}
+%\usepackage{epstopdf}
+\usepackage{booktabs}
+\usepackage[compact,small]{titlesec}
+\usepackage{complexity}
+%\usepackage[sc, osf]{mathpazo} % add possibly `sc` and `osf` options
+%\usepackage{eulervm}
+%\usepackage{textcomp}
+
+\clubpenalty = 10000
+\widowpenalty = 10000
+%\usepackage[altbullet]{lucidabr}
+\usepackage{float}
+\usepackage{siunitx}
+\usepackage[justification=centering]{caption}
+\usepackage[
+colorlinks = true,
+urlcolor = blue
+]{hyperref}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\usepackage[section]{placeins}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+%\usepackage[swedish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{comment}
+\usepackage{enumitem}
+\titleformat{\section}[block]{\Large\scshape\centering}{\thesection.}{1em}{}
+\titleformat{\subsection}[block]{\Large}{\thesubsection.}{1em}{}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat = 1.15}
+
+\usepackage[T1]{fontenc}
+
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily,breaklines=true}
+\usepackage{color} %red, green, blue, yellow, cyan, magenta, black, white
+\definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+
+%\usepackage{times}
+%\usepackage{kpfonts}
+%\usepackage{txfonts}
+%\usepackage{newtx}
+%\usepackage{stix}
+%\usepackage[osf,proportional]{libertine}
+%\usepackage{lmodern}
+\usepackage[charter]{mathdesign}
+
+\usepackage{microtype}
+%\usepackage{stix}
+\usepackage[compact,small]{titlesec}
+\titleformat*{\section}{\Large\bfseries\scshape}
+
+\titleformat*{\subsection}{\large\bfseries\scshape}
+\titleformat*{\subsubsection}{\large\bfseries\scshape}
+%\renewcommand{\section}{\section*}
+\newcommand{\ibits}{\{0, 1\}^*}
+%\renewcommand{\familydefault}{\sfdefault}
+\usepackage{marginnote}
+\renewcommand*{\marginfont}{\color{red}\sffamily\footnotesize}
+\usepackage{hyperref, xcolor}
+
+%\usepackage{makeidx}
+\definecolor{winered}{rgb}{0.5,0,0}
+\hypersetup{
+     pdfauthor={JAG},
+     pdfsubject={Hyperlinks in LaTeX},
+     pdftitle={main.tex},
+     pdfkeywords={LaTeX, PDF, hyperlinks}
+%    colorlinks=false,
+     pdfborder={0 0 0},
+%You can set individual colors for links as below:
+colorlinks=true,
+  linkcolor=winered,
+urlcolor={winered},
+filecolor={winered},
+citecolor={winered},
+allcolors={winered}
+}
+
+\usepackage[english]{babel}
+\usepackage[
+backend=biber,
+style=numeric,
+hyperref=true,
+%natbib
+]{biblatex}
+\DeclareLanguageMapping{swedish}{swedish-apa}
+\addbibresource{Komplexitetsteori.bib}
